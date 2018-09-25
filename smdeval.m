@@ -1,13 +1,16 @@
+clc;
 datas = {'DUTOMRON', 'ECSSD' ,'ICOSEG', 'MSRA10K', 'SOD'};
-
 models = {'DNN_SMD_AUTO', 'FNN_SMD_AUTO'};
 for i = 1:length(models)
     for j = 1:length(datas)
-        % for k = 1:length(r)
-        % modelname = strcat([models{i}, '_', num2str(r(k))]);
-        modelname = models{i};
+        %         % for k = 1:length(r)
+        %         % modelname = strcat([models{i}, '_', num2str(r(k))]);
+        %         % modelname = models{i};
         gtPath = strcat(['GROUND_TRUTH/', datas{j}]);
-        resSalPath = strcat(['SAL_MAP/', modelname, '/', datas{j}]);
+        resSalPath = strcat(['SAL_MAP/', modelname]);
+        %         dresSalPath = strcat(['SAL_MAP/', 'DNN_SMD_AUTO']);
+        %         fresSalPath = strcat(['SAL_MAP/', 'FNN_SMD_AUTO']);
+        %         smdSalPath = strcat(['SAL_MAP/', 'SMD']);
         gtSuffix = '.png';
         resPath = strcat(['results/', datas{j}]);
         if ~exist(resPath,'file')
@@ -15,6 +18,29 @@ for i = 1:length(models)
         end
         fprintf([modelname, ' ']);
         fprintf([datas{j}, '\n']);
+        %
+        %         imgFiles = imdir(gtPath);
+        %         imgCount = length(imgFiles);
+        %
+        %         parfor indImg = 1:imgCount
+        %             imgPath = fullfile(gtPath, imgFiles(indImg).name);
+        %             gt = im2double(imread(imgPath));
+        %             name = imgPath((strfind(imgPath,'\')+1):end);
+        %             dsalPath = fullfile(dresSalPath, strcat(name(1:end-4), '.png'));
+        %             fsalPath = fullfile(fresSalPath, strcat(name(1:end-4), '.png'));
+        %             smdPath = fullfile(smdSalPath, strcat(name(1:end-4), '.png'));
+        %             dsal = im2double(imread(dsalPath));
+        %             fsal = im2double(imread(fsalPath));
+        %             smd = im2double(imread(smdPath));
+        %             ndsal = norm(dsal - gt, 'Fro');
+        %             nfsal = norm(fsal - gt, 'Fro');
+        %             nsmd = norm(smd - gt, 'Fro');
+        %             if ndsal < nsmd || nfsal < nsmd
+        %                 fprintf('%s DNN: %s FNN: %s SMD: %s\n', name(1:end-4), num2str(ndsal), num2str(nfsal), num2str(nsmd))
+        %             end
+        %
+        %             close all;
+        %         end
         
         % compute Precison-recall curve
         [REC, PRE] = DrawPRCurve(resSalPath, '.png', gtPath, gtSuffix, true, true, 'r');
