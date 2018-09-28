@@ -1,13 +1,13 @@
 clc;
-datas = {'DUTOMRON', 'ECSSD' ,'ICOSEG', 'MSRA10K', 'SOD'};
-models = {'DNN_SMD_AUTO', 'FNN_SMD_AUTO'};
+datas = {'dataset1'};
+models = {'DNN_SMD_AUTO'};
 for i = 1:length(models)
     for j = 1:length(datas)
         %         % for k = 1:length(r)
         %         % modelname = strcat([models{i}, '_', num2str(r(k))]);
         %         % modelname = models{i};
         gtPath = strcat(['GROUND_TRUTH/', datas{j}]);
-        resSalPath = strcat(['SAL_MAP/', modelname]);
+        resSalPath = strcat(['SAL_MAP/', modelname, '/', datas{j}]);
         %         dresSalPath = strcat(['SAL_MAP/', 'DNN_SMD_AUTO']);
         %         fresSalPath = strcat(['SAL_MAP/', 'FNN_SMD_AUTO']);
         %         smdSalPath = strcat(['SAL_MAP/', 'SMD']);
