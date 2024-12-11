@@ -1,5 +1,5 @@
-This package contains our implementation for:
-"TO DO"
+LRMR: Implementations of Structured Matrix Representation Methods
+
 ===========================================================================
 *** The code is run on MATLAB R2012a-2014a on Windows 7 or Linux  - 32/64 bit.
 
@@ -20,7 +20,14 @@ Support Models
 > 5) DNN-SMD: Double Nuclear Norm for SMD
 > 6) FNN-SMD: Frobenius/Nuclear Norm for SMD
 
-Q&A:
-===========================================================================
+# Cition
 
-COMING SOON！
+```bib
+@software{zhou2018lrmr,
+  title  = {LRMR: Implementations of Structured Matrix Representation Methods},
+  author = {Zhou, Houqan},
+  url    = {https://github.com/Jacob-Zhou/LRMR},
+  month  = sep,
+  year   = {2018}
+}
+```
